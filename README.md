@@ -1,2 +1,2 @@
-# yojana
+# OneStop
 Project Management System
