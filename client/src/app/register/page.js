@@ -1,11 +1,10 @@
-import React from 'react'
+"use client"
+import {Button} from '@nextui-org/button'; 
 
-const page = () => {
+export default function Page() {
   return (
     <div>
-        register
+      <Button>Register</Button>
     </div>
   )
 }
-
-export default page
