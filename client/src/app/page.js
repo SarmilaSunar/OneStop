@@ -3,16 +3,18 @@ import React from "react";
 import Footer from '../components/footer/page'
 import {  Button } from "@nextui-org/react";
 import Navbar from '../components/navbar/page'
-
+import { useSelector } from "react-redux";
   
+export default function App() {
 
-  const page = () =>  {
+
+  const{username}= useSelector(state=>state.user)
    return (
  <>
  <Navbar/>
  
  <section className="text-gray-600 body-font" style={{ backgroundColor: '#7EC6FF' }}>
- 
+    {username}
    <div className="container px-10 py-60 mx-auto flex flex-wrap">
      
      <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
@@ -46,4 +48,3 @@ import Navbar from '../components/navbar/page'
  
  );
  }
- export default page

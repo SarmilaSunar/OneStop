@@ -30,6 +30,7 @@ const Register = () => {
       email: '',
       password: ''
     },
+    validationSchema: SignupSchema,
     onSubmit: async (values, { resetForm }) => {
        handleRegister(values)
         setTimeout(() => {
