@@ -13,7 +13,7 @@ export default function App() {
  <>
  <Navbar/>
  
- <section className="text-gray-600 body-font" style={{ backgroundColor: '#7EC6FF' }}>
+ <section className="text-gray-600 body-font" style={{background:'#d7e3fc'}}>
     {username}
    <div className="container px-10 py-60 mx-auto flex flex-wrap">
      
@@ -22,8 +22,8 @@ export default function App() {
         
         
          <div className="flex-grow">
-           <h1 className="text-gray-900 text-lg title-font font-medium mb-3">Welcome</h1>
-           <p className="leading-relaxed text-base" style={{ color: '#06355B' }}>Get 20% for your first Order</p>
+           <h1 className="text-gray-900 text-lg title-font font-medium mb-3">Welcome Back </h1>
+           <p className="leading-relaxed text-base" style={{ color: '#06355B' }}>You can have anything you want in life if you dress for it. </p>
           <br/>
            <Button type="submit" color="primary" variant="solid" size="lg">
            Shop Now

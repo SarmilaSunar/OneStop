@@ -1,21 +1,18 @@
 // counterSlice.js
 import {  createSlice } from '@reduxjs/toolkit';
 const initialState = {
-username:'ram',
-age:0
+userDetails:'',
+isLoggedIn:false
 };
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    incrementAge: (state) => {
-      
-      state.age += 1;
+    loginUser:(state) => {
+        state.isLoggedIn = true
+    }
     },
-  },
-  
-  
 });
-export const { incrementAge } = userSlice.actions;
+export const { loginUser } = userSlice.actions;
 export default userSlice.reducer;
