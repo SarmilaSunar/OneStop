@@ -13,7 +13,7 @@ export default function App() {
  <>
  <Navbar/>
  
- <section className="text-gray-600 body-font" style={{background:'#d7e3fc'}}>
+ <section className="text-gray-600 body-font" style={{backgroundImage: 'url("client/public/shopping.jpg")', background:'#d7e3fc'}}>
     {username}
    <div className="container px-10 py-60 mx-auto flex flex-wrap">
      

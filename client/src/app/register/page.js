@@ -4,6 +4,9 @@ import FormSection from '@/components/formSection/page';
 import { useFormik } from 'formik';
 import { Input, Button } from "@nextui-org/react";
 import * as Yup from 'yup';
+import { useRouter } from 'next/navigation'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 const SignupSchema = Yup.object().shape({
@@ -22,8 +25,11 @@ const SignupSchema = Yup.object().shape({
   
   });
   
+  const notify = (msg) => toast.success(msg);
 
 const Register = () => {
+  const router = useRouter()
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -39,27 +45,32 @@ const Register = () => {
       }
     });
     const handleRegister = async (inputFields) => {
-      try {
-        const response = await fetch('http://localhost:2000/register/', {
+     try{
+        const res = await fetch('http://localhost:2000/register/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(inputFields),
         });
-    
-        if (!response.ok) {
-          throw new Error(`Failed to submit form data: ${response.status}`);
-        }
-    
-        // Handle successful response
-        alert('Form data submitted successfully');
-      } catch (error) {
-        console.error('Error during registration:', error); // Log the error
-        alert('Failed to fetch. Please try again later.');
+        const data = await res.json()
+        toast(data.msg,
+  {
+    icon:res.status==200? '✅':'❌',
+    style: {
+      borderRadius: '10px',
+      background: '#333',
+      color: '#fff',
+    },
+  }
+);
+   if(res.status==200) router.push('/login')
+       
+      }catch(err){
+        console.log(err)
       }
-    };
-
+    }
+  
   return (
     <FormSection>
       <h1>Signup</h1>

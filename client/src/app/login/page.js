@@ -20,8 +20,7 @@ const Login = () => {
       password: ''
     },
     validationSchema: SignupSchema,
-    onSubmit: values => {
-     
+    onSubmit: values => { 
       handleLogin(values);
       formik.resetForm()
     }
@@ -34,8 +33,9 @@ const Login = () => {
           body: JSON.stringify(inputFields)
         })
         const data = await res.json()
+       if(res.status == 201){
         dispatch(loginUser(data))
-        router.push('/dashboard')
+       }
       
     
         // Handle successful response
