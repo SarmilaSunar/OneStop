@@ -36,7 +36,7 @@ To install "OneStop" project follow thes step by step in VS code terminal:
    cd OneStop
 ```
 3) Install Dependencies:
-a) For the client(Frontend)
+   a) For the client(Frontend)
 ```bash
 cd client 
 ```
