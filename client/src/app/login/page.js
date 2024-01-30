@@ -7,6 +7,8 @@ import * as Yup from 'yup';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '@/redux/reducerSlices/userSlice';
+import toast from 'react-hot-toast';
+
 
 const SignupSchema = Yup.object().shape({
     email: Yup.string()
@@ -25,29 +27,38 @@ const Login = () => {
       formik.resetForm()
     }
   });
-    const handleLogin = async(inputFields)=>{
-      
-        const res = await fetch('http://localhost:2000/login/',{
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(inputFields)
-        })
-        const data = await res.json()
-       if(res.status == 201){
+  const handleLogin = async(inputFields)=>{
+    try{
+      const res = await fetch('http://localhost:2000/login/',{
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(inputFields)
+      })
+      const data = await res.json()
+      if(res.status == 201){
         dispatch(loginUser(data))
-       }
-      
-    
-        // Handle successful response
-        alert('Form data submitted successfully');
-       
-    };
-
+         router.push('/dashboard')
+      }
+      toast( data.msg,
+          {
+            icon: res.status == 201 ? '✅' : '❌',
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          }
+        );
+    }catch(err){
+      console.log(err)
+    }
+  
+  }
   return (
-    <FormSection>
+    <FormSection >
       <h1>Login</h1>
       <br/>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} >
         <Input
           type="email"
           label="Email"
@@ -67,6 +78,10 @@ const Login = () => {
         <Button type="submit" color="primary" variant="solid">
          Login
         </Button>
+        <p>or</p>
+        <Button type="submit" color="primary" variant="solid">
+       Create a new account
+      </Button>  
       </form>
     </FormSection>
   )
