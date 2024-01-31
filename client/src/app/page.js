@@ -1,15 +1,13 @@
 'use client'
 import React from "react";
 import Footer from '../components/footer/page'
-import {  Button } from "@nextui-org/react";
 import Navbar from '../components/navbar/page'
-import { useSelector } from "react-redux";
-import { Input} from "@nextui-org/react";
+import { useSelector } from 'react-redux';
 
 export default function App() {
 
 
-  const{username,token}= useSelector(state=>state.user)
+  const {username} = useSelector(state=>state.user)
    return (
  <div>
  <Navbar/>

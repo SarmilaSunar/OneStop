@@ -66,6 +66,7 @@ const Login = () => {
           onChange={formik.handleChange}
           value={formik.values.email}
         />
+         {formik?.errors.email}
         <br/>
         <Input
           type="password"
@@ -74,6 +75,7 @@ const Login = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
+          {formik?.errors.password}
         <br/>
         <Button type="submit" color="primary" variant="solid">
          Login
