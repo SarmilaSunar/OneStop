@@ -3,6 +3,7 @@ import React from "react";
 import Footer from '../components/footer/page'
 import Navbar from '../components/navbar/page'
 import { useSelector } from 'react-redux';
+import {Pagination, Button} from "@nextui-org/react";
 
 export default function App() {
 
@@ -23,7 +24,13 @@ export default function App() {
       </div>
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-      <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"/>
+      <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
+      <div className="flex flex-col gap-5">
+      <Pagination
+        total={10}
+       />
+    </div>
+    
     </div>
   </div>
 </section>

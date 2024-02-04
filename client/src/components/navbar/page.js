@@ -12,6 +12,22 @@ const page = () => {
   const dispatch = useDispatch();
   const { isLoggedIn, userDetails } = useSelector((state) => state.user);
 
+  const AuthButtons = () => {
+    return(
+      <div className="flex items-center gap-4">
+
+      <NavbarItem className="hidden lg:flex">
+      <Link href="/login">Login</Link>
+    </NavbarItem>
+    <NavbarItem>
+      <Button as={Link} color="primary" href="/register" variant="flat">
+        Sign Up
+      </Button>
+    </NavbarItem>
+    </div>
+    )
+  }
+  
   return (
     <div>
         <Navbar>
@@ -33,7 +49,7 @@ const page = () => {
 
         <NavbarItem>
           <Link color="foreground" href="#">
-           Products
+           Shop 
           </Link>
         </NavbarItem>
 
@@ -43,17 +59,11 @@ const page = () => {
           </Link>
         </NavbarItem>
 
-      </NavbarContent>
+      </NavbarContent> 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/login">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="/register" variant="flat">
-            Sign Up
-          </Button>
 
-        </NavbarItem>
+      
+      {isLoggedIn ? (
         <div>
           <Dropdown placement="bottom-end">
         <DropdownTrigger>
@@ -88,6 +98,12 @@ const page = () => {
         </DropdownMenu>
       </Dropdown>
 </div>
+
+):(
+  <AuthButtons />
+
+)}
+
       </NavbarContent>
     </Navbar>
     </div>

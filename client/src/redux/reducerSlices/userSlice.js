@@ -1,11 +1,11 @@
-// counterSlice.js
 import {  createSlice } from '@reduxjs/toolkit';
 const initialState = {
-userDetails:{},
-token: '',
-isLoggedIn:false
+  userDetails: {},
+  token: '',
+  isLoggedIn: false
 };
 
+// Redux Toolkit slice
 export const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -20,6 +20,7 @@ export const userSlice = createSlice({
     logoutUser: (state, actions) => {
       return {...initialState}
     }
-} });
-export const { loginUser,logoutUser } = userSlice.actions;
+  },
+});
+export const { loginUser, logoutUser } = userSlice.actions;
 export default userSlice.reducer;
