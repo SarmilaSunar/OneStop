@@ -72,8 +72,10 @@ const Register = () => {
     }
   
   return (
+    <div className="card shadow mx-auto " style={{maxWidth:"100vh"}}>
+
     <FormSection>
-      <h1>Signup</h1>
+      <h1 className = "card-title mb-4 text-center" style={{color:"#1877F2", fontSize: "1.5rem"}}>Signup</h1>
       <br/>
       <form onSubmit={formik.handleSubmit}>
         <Input
@@ -105,6 +107,7 @@ const Register = () => {
         </Button>
       </form>
     </FormSection>
+    </div>
   );
 }
 

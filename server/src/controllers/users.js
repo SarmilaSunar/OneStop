@@ -1,9 +1,8 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
-
 const saltRounds = 10;
+
 const registerNewUser = async(req, res) => {
   try{
     const existingUser = await  User.findOne({email: req.body.email})
@@ -24,8 +23,6 @@ const registerNewUser = async(req, res) => {
     console.log(err)
   }
 }
-
-
 
 const loginUser = async (req, res) => {
   try {

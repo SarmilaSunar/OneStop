@@ -3,7 +3,7 @@ import React from "react";
 import Footer from '../components/footer/page'
 import Navbar from '../components/navbar/page'
 import { useSelector } from 'react-redux';
-import {Pagination, Button} from "@nextui-org/react";
+import Link from "next/link";
 
 export default function App() {
 
@@ -20,16 +20,14 @@ export default function App() {
       </h1>
       <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Shop Now</button>
-      </div>
+          <Link color="foreground" href="/admin/products" passHref >
+        <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg" href= "/admin/products">Shop Now</button>
+          </Link>
+     </div>
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
       <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" />
-      <div className="flex flex-col gap-5">
-      <Pagination
-        total={10}
-       />
-    </div>
+     
     
     </div>
   </div>

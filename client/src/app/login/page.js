@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '@/redux/reducerSlices/userSlice';
 import toast from 'react-hot-toast';
+import { Link } from '@nextui-org/react';
 
 
 const SignupSchema = Yup.object().shape({
@@ -37,7 +38,7 @@ const Login = () => {
       const data = await res.json()
       if(res.status == 201){
         dispatch(loginUser(data))
-         router.push('/dashboard')
+         router.push('/admin/products')
       }
       toast( data.msg,
           {
@@ -55,8 +56,10 @@ const Login = () => {
   
   }
   return (
-    <FormSection >
-      <h1>Login</h1>
+  <FormSection>
+    <div className="card shadow mx-auto " style={{maxWidth:"100vh"}}>
+    
+      <h1 className = "card-title mb-4 text-center" style={{color:"#1877F2", fontSize: "1.5rem"}}>Login</h1>
       <br/>
       <form onSubmit={formik.handleSubmit} >
         <Input
@@ -81,10 +84,12 @@ const Login = () => {
          Login
         </Button>
         <p>or</p>
-        <Button type="submit" color="primary" variant="solid">
-       Create a new account
-      </Button>  
+        <Link href="/register">Create a new account</Link>
+
+       
       </form>
+    
+    </div>
     </FormSection>
   )
 }

@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from "../../redux/reducerSlices/userSlice";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar, User} from "@nextui-org/react";
 
-
 const page = () => {
 
   const dispatch = useDispatch();
@@ -27,6 +26,7 @@ const page = () => {
     </div>
     )
   }
+
   
   return (
     <div>
@@ -34,32 +34,24 @@ const page = () => {
       <NavbarBrand>
         <Image src="/logo.png" width={65} height={20}/>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Home
-          </Link>
-        </NavbarItem>
-       
-        <NavbarItem>
-          <Link color="foreground" href="#">
-           About Us
-          </Link>
-        </NavbarItem>
+      <Link href="#" underline="hover">Home</Link><br/>
+      <Link href="#" underline="hover">About</Link><br/>
+      <Dropdown backdrop="blur">  
+      <DropdownTrigger>
+      <Link href="#" underline="hover">Shop</Link>
+      </DropdownTrigger>
+      <DropdownMenu variant="faded" aria-label="Static Actions">
+        <DropdownItem key="new">Womens</DropdownItem>
+        <DropdownItem key="copy">Mens</DropdownItem>
+        
+      </DropdownMenu>
+    </Dropdown>
+     
+    
 
-        <NavbarItem>
-          <Link color="foreground" href="#">
-           Shop 
-          </Link>
-        </NavbarItem>
 
-        <NavbarItem>
-          <Link color="foreground" href="#">
-        Contact
-          </Link>
-        </NavbarItem>
+      <Link href="#" underline="hover">Contact</Link><br/>
 
-      </NavbarContent> 
       <NavbarContent justify="end">
 
       
@@ -83,12 +75,10 @@ const page = () => {
           <DropdownItem key="settings">
             My Settings
           </DropdownItem>
-          <DropdownItem key="team_settings">Team Settings</DropdownItem>
+          <DropdownItem key="team_settings">Orders</DropdownItem>
           <DropdownItem key="analytics">
             Analytics
           </DropdownItem>
-          <DropdownItem key="system">System</DropdownItem>
-          <DropdownItem key="configurations">Configurations</DropdownItem>
           <DropdownItem key="help_and_feedback">
             Help & Feedback
           </DropdownItem>
@@ -97,6 +87,7 @@ const page = () => {
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
+
 </div>
 
 ):(
@@ -106,6 +97,7 @@ const page = () => {
 
       </NavbarContent>
     </Navbar>
+
     </div>
   )
 }
